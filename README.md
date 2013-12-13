@@ -30,3 +30,6 @@ Add the typeahead tag in your handlebars template
 - ```name``` The name of the property on the ember object which is to be displayed
 - ```selection``` Binds the selected value. This changes on the ```typeahead:selected``` and ```typeahead:typeahead:autocompleted``` events (see [typeahead.js custom events](https://github.com/twitter/typeahead.js/#custom-events))
 
+## Tests
+
+I didn't do any tests. For every line of untested code a puppy dies. 59 puppies died in the making of this component.
