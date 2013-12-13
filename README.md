@@ -12,10 +12,11 @@ bower install ember-typeahead
 
 ## Usage
 
-Include the script file
+Include ```typeahead.js``` and ```ember-typeahead.js```
 
 ```
-<script src="bower_components/ember-typeahead.js"></script> 
+<script src="typeahead.js"></script> 
+<script src="ember-typeahead.js"></script> 
 ```
 
 Add the typeahead tag in your handlebars template
