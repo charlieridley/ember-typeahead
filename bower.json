@@ -1,0 +1,15 @@
+{
+  "name": "ember-typeahead.js",
+  "version": "0.1.0",
+  "main": "dist/ember-typeahead.min.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "typeahead.js": "0.9.3",
+    "ember": "1.2.0"
+  }
+}

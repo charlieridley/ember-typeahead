@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ember-typeahead.js demo</title>
+  </head>
+  <body>
+    
+    <script src="./../bower_components/jquery/jquery.js"></script>
+    <script src="./../bower_components/handlebars/handlebars.js"></script>
+    <script src="./../bower_components/ember/ember.js"></script>
+    <script src="./../bower_components/typeahead.js/dist/typeahead.js"></script>
+    <script src="./../dist/ember-typeahead.js"></script>  
+    <script>
+      App = Ember.Application.create();
+      App.ApplicationRoute = Ember.Route.extend({
+        model: function(){
+          return [
+            Ember.Object.create({colour: "Red"}),
+            Ember.Object.create({colour: "Green"}),
+            Ember.Object.create({colour: "Blue"})
+          ]
+        }
+      });
+    </script>
+    
+    <h1>ember-typeahead.js demo</h1>
+    <p>Check out the <a href="https://github.com/charlieridley/ember-typeahead.js">project repo</a>.
+    <p>Copyright 2013 Charlie Ridley</p>
+    <h2>Demo</h2>
+
+    <script type="text/x-handlebars" data-template-name="application">    
+    {{type-ahead data=content name="colour" selection=myColour}} {{myColour.colour}}       
+    </script>
+  </body>
+</html>
