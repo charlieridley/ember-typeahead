@@ -25,7 +25,7 @@
     initializeTypeahead: function(data){
       var _this = this;
       this.typeahead = this.$().typeahead({
-        name:  "typeahead",
+        name: "typeahead",
         limit: this.get("limit") || 5,
         local: data.map(function(item) {
           return {
