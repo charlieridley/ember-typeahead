@@ -25,7 +25,7 @@
     initializeTypeahead: function(data){
       var _this = this;
       this.typeahead = this.$().typeahead({
-        name: _this.$().attr('id') || "typeahead",
+        name:  "typeahead",
         limit: this.get("limit") || 5,
         local: data.map(function(item) {
           return {
@@ -51,6 +51,9 @@
     },
     
     selectionObserver: function() {
+      if (this.get('selection') === undefined) {
+        return "";
+      };
       return this.typeahead.val(this.get("selection").get(this.get("name")));
     }.observes("selection")
 
