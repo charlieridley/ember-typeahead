@@ -53,7 +53,7 @@
     selectionObserver: function() {
       if (this.get('selection') === undefined) {
         return "";
-      };
+      }
       return this.typeahead.val(this.get("selection").get(this.get("name")));
     }.observes("selection")
 
