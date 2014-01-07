@@ -51,8 +51,8 @@
     },
     
     selectionObserver: function() {
-      if (this.get('selection') === undefined) {
-        return "";
+      if (this.get('selection') === undefined || this.get('selection') === null) {
+        return this.typeahead.val('');
       }
       return this.typeahead.val(this.get("selection").get(this.get("name")));
     }.observes("selection")
