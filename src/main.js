@@ -51,7 +51,7 @@
     },
     
     selectionObserver: function() {
-      if (this.get('selection') === undefined || this.get('selection') === null) {
+      if (Em.isEmpty(this.get('selection')) === true) {
         return this.typeahead.val('');
       }
       return this.typeahead.val(this.get("selection").get(this.get("name")));
