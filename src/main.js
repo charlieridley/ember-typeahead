@@ -24,8 +24,9 @@
 
     initializeTypeahead: function(data){
       var _this = this;
-      this.typeahead = this.$().typeahead({
-        name: _this.$().attr('id') || "typeahead",
+      var $input = this.$();
+      this.typeahead = $input.typeahead({
+        name: $input.attr('id') || "typeahead",
         limit: this.get("limit") || 5,
         local: data.map(function(item) {
           return {
@@ -35,6 +36,10 @@
             emberObject: item
           };
         })
+      });
+
+      this.typeahead.on("keyup", function() {
+        _this.set("contents", $input.val());
       });
 
       this.typeahead.on("typeahead:selected", function(event, item) {
