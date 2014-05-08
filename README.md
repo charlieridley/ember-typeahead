@@ -22,7 +22,7 @@ Include ```typeahead.js``` and ```ember-typeahead.js```
 Add the typeahead tag in your handlebars template
 
 ```
-{{type-ahead data=content name="colour" selection=myColour}}
+{{type-ahead data=content name="colour" selection=myColour contents=inputContents}}
 ```
 
 ## Properties
@@ -30,6 +30,7 @@ Add the typeahead tag in your handlebars template
 - ```data``` An array of ember objects used for the lookup. This can also be a promise that resolves to an array
 - ```name``` The name of the property on the ember object which is to be displayed
 - ```selection``` Binds the selected value. This changes on the ```typeahead:selected``` and ```typeahead:autocompleted``` events (see [typeahead.js custom events](https://github.com/twitter/typeahead.js/#custom-events))
+- ```contents``` The value of the input updated on the keyup event of the input
 
 ## Tests
 
