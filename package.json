@@ -1,6 +1,6 @@
 {
   "name": "ember-typeahead.js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "dist/ember-typeahead.min.js",
   "description": "emberjs typeahead component",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "git://github.com/charlieridley/ember-typeahead.js.git"
   },
   "keywords": [],
-  "author": "Charlie Ridley",
+  "author": "Charlie Ridley, SafetyCulture Pty Ltd",
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {},

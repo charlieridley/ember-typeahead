@@ -9,7 +9,7 @@
     "test"
   ],
   "dependencies": {
-    "typeahead.js": "0.9.3",
-    "ember": "1.2.0"
+    "typeahead.js": "0.10.4",
+    "ember": "1.6.0"
   }
 }
