@@ -1,6 +1,6 @@
 {
   "name": "ember-typeahead.js",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/ember-typeahead.min.js",
   "description": "emberjs typeahead component",
   "repository": {
