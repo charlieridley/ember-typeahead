@@ -24,23 +24,22 @@
 
       //Set Classes on the wrapping input element
       if (this.get("typeaheadClassNames")){
-        this.$().parent().addClass(this.get("typeaheadClassNames"))
+        this.$().parent().addClass(this.get("typeaheadClassNames"));
       }
 
       //Set Classes on the input element
       if (this.get("inputClassNames")){
-        this.$().addClass(this.get("inputClassNames"))
+        this.$().addClass(this.get("inputClassNames"));
       }
 
       //Set Classes on the hint input element
       if (this.get("hintClassNames")){
-        console.log(this.$().parent().find('.tt-hint'))
-        this.$().parent().find('.tt-hint').addClass(this.get("hintClassNames"))
+        this.$().parent().find('.tt-hint').addClass(this.get("hintClassNames"));
       }
 
       //Set Placeholder on the input element
       if (this.get("placeholder")){
-        this.$().attr("placeholder", this.get("placeholder"))
+        this.$().attr("placeholder", this.get("placeholder"));
       }
     },
 
