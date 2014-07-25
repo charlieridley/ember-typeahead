@@ -21,6 +21,27 @@
       } else {
         this.initializeTypeahead();
       }
+
+      //Set Classes on the wrapping input element
+      if (this.get("typeaheadClassNames")){
+        this.$().parent().addClass(this.get("typeaheadClassNames"))
+      }
+
+      //Set Classes on the input element
+      if (this.get("inputClassNames")){
+        this.$().addClass(this.get("inputClassNames"))
+      }
+
+      //Set Classes on the hint input element
+      if (this.get("hintClassNames")){
+        console.log(this.$().parent().find('.tt-hint'))
+        this.$().parent().find('.tt-hint').addClass(this.get("hintClassNames"))
+      }
+
+      //Set Placeholder on the input element
+      if (this.get("placeholder")){
+        this.$().attr("placeholder", this.get("placeholder"))
+      }
     },
 
     initializeTypeahead: function(){
@@ -73,7 +94,8 @@
       if (Ember.isEmpty(this.get('selection')) === true) {
         return this.typeahead.val('');
       }
-      return this.typeahead.val(this.get("selection").get(this.get("name")));
+
+      return this.typeahead.val(this.get("selection").get(this.get("displayKey")));
     }.observes("selection")
 
   });
