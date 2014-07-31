@@ -89,19 +89,19 @@
         _this.set("cursor", Ember.Object.create(item));
       });
 
-      if (this.get("selection")) {
+      if (this.get("value")) {
+        this.typeahead.typeahead('val', this.get('value'));
+      } else if (this.get("selection")) {
         var name = this.get("displayKey");
-        this.typeahead.val(this.get("selection."+name));
+        this.typeahead.typeahead('val', this.get("selection."+name));
       }
     },
 
-    selectionObserver: function() {
-      if (Ember.isEmpty(this.get('selection')) === true) {
-        return this.typeahead.val('');
-      }
-
-      return this.typeahead.val(this.get("selection").get(this.get("displayKey")));
-    }.observes("selection")
+    valueObserver: function() {
+        if(this.typeahead.typeahead('val') != this.get('value')){
+            this.typeahead.typeahead('val', this.get('value'));
+        }
+    }.observes("value")
 
   });
   Ember.Handlebars.helper('type-ahead', Ember.TypeAheadComponent);
