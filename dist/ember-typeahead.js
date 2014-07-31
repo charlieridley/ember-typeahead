@@ -77,10 +77,16 @@
 
       this.typeahead.on("typeahead:selected", function(event, item) {
         _this.set("selection", Ember.Object.create(item));
+        _this.set("cursor", Ember.Object.create(item));
       });
 
       this.typeahead.on("typeahead:autocompleted", function(event, item) {
         _this.set("selection", Ember.Object.create(item));
+        _this.set("cursor", Ember.Object.create(item));
+      });
+
+      this.typeahead.on("typeahead:cursorChanged", function(event, item) {
+        _this.set("cursor", Ember.Object.create(item));
       });
 
       if (this.get("selection")) {
