@@ -72,7 +72,7 @@
         name: this.get("name") || 'typeahead',
         displayKey: this.get("displayKey") || 'value',
         source: source,
-        templates: this.get("templates") || {},
+        templates: this.get("templates") || {}
       });
 
       this.typeahead.on("typeahead:selected", function(event, item) {
@@ -85,7 +85,7 @@
         _this.set("cursor", Ember.Object.create(item));
       });
 
-      this.typeahead.on("typeahead:cursorChanged", function(event, item) {
+      this.typeahead.on("typeahead:cursorchanged", function(event, item) {
         _this.set("cursor", Ember.Object.create(item));
       });
 
@@ -98,7 +98,10 @@
     },
 
     valueObserver: function() {
-        if(this.typeahead.typeahead('val') != this.get('value')){
+        var name = this.get("displayKey");
+
+        // When the value changes outside the expected typeahead bounds we need to make sure its updated
+        if(this.typeahead.typeahead('val') != this.get('value') && this.get('cursor.'+name) != this.get('value')){
             this.typeahead.typeahead('val', this.get('value'));
         }
     }.observes("value")
