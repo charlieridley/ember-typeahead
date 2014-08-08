@@ -25,6 +25,12 @@ Add the typeahead tag in your handlebars template
 {{type-ahead data=content name="colour" selection=myColour}}
 ```
 
+Since `ember-typeahead` extends `Ember.TextField`, you can still bind other properties such as `value` and `action`:
+
+```
+{{type-ahead data=content name="colour" selection=myColour action=createNewColour value=colourText}}
+```
+
 ## Properties
 
 - ```data``` An array of ember objects used for the lookup. This can also be a promise that resolves to an array
