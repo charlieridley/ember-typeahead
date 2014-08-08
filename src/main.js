@@ -4,16 +4,13 @@
       
     didInsertElement: function() {
       this._super();
-      var _this = this;
-      
+
       if(!this.get("data")){
         throw "No data property set";
       }
 
       if (jQuery.isFunction(this.get("data").then)){
-        this.get("data").then(function(data) {
-          _this.initializeTypeahead(data);
-        });
+        this.get("data").then(this.initializeTypeahead.bind(this));
       }
 
       else{
@@ -23,27 +20,27 @@
     },
 
     initializeTypeahead: function(data){
-      var _this = this;
       this.typeahead = this.$().typeahead({
-        name: _this.$().attr('id') || "typeahead",
+        name: this.$().attr('id') || "typeahead",
         limit: this.get("limit") || 5,
         local: data.map(function(item) {
+          var name = item.get(this.get("name"));
           return {
-            value: item.get(_this.get("name")),
-            name: item.get(_this.get("name")),
-            tokens: [item.get(_this.get("name"))],
+            value: name,
+            name: name,
+            tokens: [name],
             emberObject: item
           };
-        })
+        }.bind(this))
       });
 
       this.typeahead.on("typeahead:selected", function(event, item) {
-        _this.set("selection", item.emberObject);
-      });
+        this.set("selection", item.emberObject);
+      }.bind(this));
 
       this.typeahead.on("typeahead:autocompleted", function(event, item) {
-        _this.set("selection", item.emberObject);
-      });
+        this.set("selection", item.emberObject);
+      }.bind(this));
 
       if (this.get("selection")) {
         this.typeahead.val(this.get("selection.name"));
