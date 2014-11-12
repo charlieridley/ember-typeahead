@@ -29,9 +29,9 @@
         limit: this.get("limit") || 5,
         local: data.map(function(item) {
           return {
-            value: item.get(_this.get("name")),
-            name: item.get(_this.get("name")),
-            tokens: [item.get(_this.get("name"))],
+            value: item.get(_this.get("dataName")),
+            name: item.get(_this.get("dataName")),
+            tokens: [item.get(_this.get("dataName"))],
             emberObject: item
           };
         })
@@ -54,7 +54,7 @@
       if (Ember.isEmpty(this.get('selection')) === true) {
         return this.typeahead.val('');
       }
-      return this.typeahead.val(this.get("selection").get(this.get("name")));
+      return this.typeahead.val(this.get("selection").get(this.get("dataName")));
     }.observes("selection")
 
   });

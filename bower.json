@@ -1,6 +1,6 @@
 {
   "name": "ember-typeahead",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/ember-typeahead.min.js",
   "ignore": [
     "**/.*",
@@ -10,6 +10,6 @@
   ],
   "dependencies": {
     "typeahead.js": "0.9.3",
-    "ember": "1.2.0"
+    "ember": "1.8.1"
   }
 }
