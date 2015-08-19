@@ -12,6 +12,13 @@
         throw "No data source set";
       }
 
+      // respect minLength of 0
+      if (this.get('minLength') === undefined) {this.set('minLength', 1); }
+
+      // respect false values for options
+      if (this.get('hint')      === undefined) {this.set('hint', true); }
+      if (this.get('highlight') === undefined) {this.set('highlight', true); }
+
       // Resolves futures where necessary.
       if (this.get("local") && jQuery.isFunction(this.get("local").then)){
         this.get("local").then(function(local) {
@@ -43,6 +50,15 @@
       }
     },
 
+    clearInput: function(target) {
+      if (this.get('clearInputAfterEvent')) {
+        if (this.get("minLength") === 0) {
+          this.$(target).blur();
+        }
+        this.$(target).val("");
+      }
+    },
+
     initializeTypeahead: function(){
       var _this = this;
 
@@ -64,9 +80,9 @@
       }
 
       this.typeahead = this.$().typeahead({
-        hint: this.get("hint") || true,
-        highlight: this.get("highlight") || true,
-        minLength: this.get("minLength") || 1
+        hint: this.get("hint"),
+        highlight: this.get("highlight"),
+        minLength: this.get("minLength")
       },
       {
         name: this.get("name") || 'typeahead',
@@ -78,25 +94,26 @@
       this.typeahead.on("typeahead:selected", function(event, item) {
         _this.set("selection", Ember.Object.create(item));
         _this.set("cursor", Ember.Object.create(item));
-
-        // reset input filed
-        if (_this.get('clearInputAfterEvent')) {
-          _this.$(event.target).val("");
-        }
+        _this.clearInput(event.target);
       });
 
       this.typeahead.on("typeahead:autocompleted", function(event, item) {
         _this.set("selection", Ember.Object.create(item));
         _this.set("cursor", Ember.Object.create(item));
-
-        // reset input filed
-        if (_this.get('clearInputAfterEvent')) {
-          _this.$(event.target).val("");
-        }
+        _this.clearInput(event.target);
       });
 
       this.typeahead.on("typeahead:cursorchanged", function(event, item) {
         _this.set("cursor", Ember.Object.create(item));
+      });
+
+      // if minLength is 0, open selection list on input focus
+      this.typeahead.on( 'focus', function() {
+        if (_this.get("minLength") === 0) {
+          if(_this.$(this).val() === '') {// you can also check for minLength
+            _this.$(this).data().ttTypeahead.input.trigger('queryChanged', '');
+          }
+        }
       });
 
       if (this.get("value")) {
