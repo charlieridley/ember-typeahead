@@ -55,7 +55,9 @@
         if (this.get("minLength") === 0) {
           this.$(target).blur();
         }
-        this.$(target).val("");
+        Ember.run.next(this, function() {
+          this.$(target).val("");
+        });
       }
     },
 
