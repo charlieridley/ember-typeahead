@@ -48,6 +48,11 @@
       if (this.get("placeholder")){
         this.$().attr("placeholder", this.get("placeholder"));
       }
+
+      // Set maxlength when specified
+      if (this.get("maxLength")){
+        this.$().attr("maxlength", this.get("maxLength"));
+      }
     },
 
     clearInput: function(target) {
