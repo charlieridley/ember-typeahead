@@ -4,32 +4,39 @@
     <title>ember-typeahead.js demo</title>
   </head>
   <body>
-    
+
     <script src="./../bower_components/jquery/jquery.js"></script>
     <script src="./../bower_components/handlebars/handlebars.js"></script>
     <script src="./../bower_components/ember/ember.js"></script>
-    <script src="./../bower_components/typeahead.js/dist/typeahead.js"></script>
-    <script src="./../dist/ember-typeahead.js"></script>  
+    <script src="./../bower_components/typeahead.js/dist/typeahead.jquery.js"></script>
+    <script src="./../bower_components/typeahead.js/dist/bloodhound.js"></script>
+    <script src="./../src/main.js"></script>
     <script>
       App = Ember.Application.create();
       App.ApplicationRoute = Ember.Route.extend({
         model: function(){
-          return [
-            Ember.Object.create({colour: "Red"}),
-            Ember.Object.create({colour: "Green"}),
-            Ember.Object.create({colour: "Blue"})
-          ]
+          return [{"value":"aliquip"},{"value":"deserunt"},{"value":"ut"},{"value":"laborum"},{"value":"et"},{"value":"aliquip"},{"value":"mollit"},{"value":"adipisicing"},{"value":"eu"},{"value":"ut"},{"value":"fugiat"},{"value":"minim"},{"value":"cupidatat"},{"value":"occaecat"},{"value":"dolore"},{"value":"eu"},{"value":"et"},{"value":"ut"},{"value":"pariatur"},{"value":"eiusmod"},{"value":"magna"},{"value":"culpa"},{"value":"amet"},{"value":"nulla"},{"value":"proident"},{"value":"excepteur"},{"value":"exercitation"},{"value":"mollit"},{"value":"sint"},{"value":"in"},{"value":"commodo"},{"value":"esse"},{"value":"eu"},{"value":"enim"},{"value":"aute"},{"value":"duis"},{"value":"velit"},{"value":"qui"},{"value":"labore"},{"value":"aliquip"},{"value":"Lorem"},{"value":"culpa"},{"value":"esse"},{"value":"minim"},{"value":"officia"},{"value":"aliqua"},{"value":"aliqua"},{"value":"laboris"},{"value":"mollit"},{"value":"nisi"},{"value":"ex"},{"value":"nostrud"},{"value":"et"},{"value":"dolor"},{"value":"laboris"},{"value":"in"},{"value":"cupidatat"},{"value":"esse"},{"value":"eu"},{"value":"ea"},{"value":"labore"},{"value":"ea"},{"value":"commodo"},{"value":"ea"},{"value":"nulla"},{"value":"irure"},{"value":"anim"},{"value":"magna"},{"value":"dolor"},{"value":"amet"},{"value":"et"},{"value":"nisi"},{"value":"proident"},{"value":"irure"},{"value":"aliqua"},{"value":"exercitation"},{"value":"laboris"},{"value":"voluptate"},{"value":"ex"},{"value":"voluptate"},{"value":"elit"},{"value":"deserunt"},{"value":"fugiat"},{"value":"dolor"},{"value":"pariatur"},{"value":"occaecat"},{"value":"nisi"},{"value":"aliquip"},{"value":"in"},{"value":"non"},{"value":"esse"},{"value":"ex"},{"value":"culpa"},{"value":"dolor"},{"value":"velit"},{"value":"ea"},{"value":"ut"},{"value":"magna"},{"value":"anim"},{"value":"ex"},{"value":"ut"},{"value":"sint"},{"value":"sint"},{"value":"eu"},{"value":"do"},{"value":"laborum"},{"value":"ullamco"},{"value":"commodo"},{"value":"Lorem"},{"value":"ex"},{"value":"sit"},{"value":"cupidatat"},{"value":"officia"},{"value":"enim"},{"value":"irure"},{"value":"nostrud"},{"value":"proident"},{"value":"et"},{"value":"occaecat"},{"value":"officia"},{"value":"incididunt"},{"value":"reprehenderit"},{"value":"culpa"},{"value":"dolor"},{"value":"deserunt"},{"value":"officia"},{"value":"velit"},{"value":"excepteur"},{"value":"aute"},{"value":"nulla"},{"value":"mollit"},{"value":"mollit"},{"value":"elit"},{"value":"pariatur"}]
         }
       });
     </script>
-    
-    <h1>ember-typeahead.js demo</h1>
-    <p>Check out the <a href="https://github.com/charlieridley/ember-typeahead.js">project repo</a>.
-    <p>Copyright 2013 Charlie Ridley</p>
+
+    <h1>ember-typeahead.js for typeahead.js 0.10.x - Demo</h1>
+    <p>
+        Available on Github from <a href="https://github.com/safetyculture/ember-typeahead.js">safetyculture/ember-typeahead.js</a>.</br>
+        Forked from <a href="https://github.com/charlieridley/ember-typeahead.js">charlieridley/ember-typeahead.js</a>.
+    </p>
+
+    <p>
+        Portions Copyright 2014 SafetyCulture Pty Ltd</br>
+        Copyright 2013 Charlie Ridley
+    </p>
+
     <h2>Demo</h2>
 
-    <script type="text/x-handlebars" data-template-name="application">    
-    {{type-ahead data=content name="colour" selection=myColour}} {{myColour.colour}}       
+    <script type="text/x-handlebars" data-template-name="application">
+        {{type-ahead local=content name="colour" selection=selectedWord}}
+
+        <b>{{selectedWord.value}}</b>
     </script>
   </body>
 </html>
